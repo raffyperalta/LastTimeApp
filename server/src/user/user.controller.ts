@@ -10,13 +10,18 @@ export class UserController {
   }
 
   @Get(':id')
-  findUserById(@Param('id') id: string) {
+  findUserById(@Param('id') id: number) {
     return this.userService.findUserById(id);
   }
 
   @Patch(':id')
-  async updateUser(@Param('id') id: string, @Body() data: any) {
+  async updateUser(@Param('id') id: number, @Body() data: any) {
     return this.userService.updateUser(id, data);
+  }
+
+  @Get()
+  helloWorld(): string {
+    return this.userService.helloWorld();
   }
 
 }
